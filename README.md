@@ -1,5 +1,3 @@
----
-
 # **Pipe POP Node Setup Guide**
 
 Welcome to the **Pipe POP Node Setup**! This guide will walk you through the entire process of setting up your Pipe POP node, including configuring automatic startup using `systemd`, and utilizing the referral and reputation systems to earn rewards.
@@ -29,13 +27,25 @@ cd /root/pipenetwork
 
 **🔔 Important:** After creating the `pipenetwork` directory, move the **`pop` binary** that you received via email into this directory.
 
+Next, make the `pop` binary executable:
+
+```bash
+chmod +x pop
+```
+
 ---
 
 ### **2. Set Up the Systemd Service**
 
 Now we’ll configure the systemd service to manage the Pipe POP node automatically.
 
-1. **Create the systemd service file** at `/etc/systemd/system/pipe-pop.service` with the following content:
+1. **Create the systemd service file** by running the following command:
+
+    ```bash
+    nano /etc/systemd/system/pipe-pop.service
+    ```
+
+2. Paste the following content into the file:
 
     ```ini
     [Unit]
@@ -64,6 +74,8 @@ Now we’ll configure the systemd service to manage the Pipe POP node automatica
     [Install]
     WantedBy=multi-user.target
     ```
+
+3. **Save and exit** the file (press `CTRL+X`, then `Y`, then `ENTER`).
 
    **🌟 Explanation of the Parameters**:
    - `--ram <Your RAM size>`: Replace `<Your RAM size>` with the amount of RAM you wish to allocate (e.g., `8` for 8GB).
@@ -151,3 +163,4 @@ You've successfully set up your **Pipe POP Node** and are now ready to start ear
 If you have any issues or need further assistance, feel free to reach out to our support team.
 
 ---
+
